@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Аутентификация и авторизация</title>
+
+		<meta name="author" content="Омельянюк Михаил">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- Для подстветки синтаксиса -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Каждый блок <section> - это отдельный слайд -->
+			<div class="slides">
+				<section>
+					<h2>Авторизация и аутентификация</h2>
+				</section>
+
+				<section>
+					<h2>Авторизация</h2>
+					<p style="text-align: left;">- процедура проверки подлинности:</p>
+					<ul>
+					<li><p style="text-align: left;">пользователей (пароль, данные на сервере)</p>
+					<li><p style="text-align: left;">электронного письма (цифровая подпись)</p>
+					<li><p style="text-align: left;">файла (контрольная сумма)</p>
+					</ul>
+					<aside class="notes">
+						А это некоторые заметки. Они спрятаны при показе презентации, но вы можете их видеть когда находитесь в окне рассказчика (нажав на клавиатуре букву "s").
+					</aside>
+				</section>
+				
+				<section>
+					<h2>Элементы системы аутентификации</h2>
+					<ul>
+					<li><p>субъект</p>
+					<li><p>его характеристика</p>
+					<li><p>хозяин системы аутентификации</p>
+					<li><p>механизм аутентификации</p>
+					<li><p>механизм управления доступом</p>
+					</ul>
+					<aside class="notes">
+						А это некоторые заметки. Они спрятаны при показе презентации, но вы можете их видеть когда находитесь в окне рассказчика (нажав на клавиатуре букву "s").
+					</aside>
+				</section>
+				
+				<section>
+					<h2>Способы аутентификации</h2>
+					<ul>
+					<li><p>сертификаты (стандарт Х.509), создается цифровая подпись</p>
+					<li><p>по многоразовым паролям</p>
+					<li><p>по одноразовым паролям</p>
+					<ol>
+						<li><p>с помощью SMS</p>
+						<li><p>аппаратные токены</p>
+						<li><p>письмо на привязанную почту</p>
+					</ol>
+					<li><p>по ключам доступа (публичный и секретный)</p>
+					<li><p>токен (Identity provider, Server provider)</p>
+					<li><p>биометрическая аутентификация</p>
+					<li><p>через географическое местоположение</p>
+					<li><p>многофакторная аутентификация</p>
+					</ul>
+				</section>
+									
+				<section>
+					<h2>Авторизация</h2>
+					<p style="text-align: left;"> - предоставление определённому лицу или группе лиц <br>
+					прав на выполнение определённых действий; а также <br>
+					процесс проверки (подтверждения) данных прав при попытке <br>
+					выполнения этих действий.</p>
+					<p style="text-align: left;">Зачастую процедуры аутентификации и авторизации совмещаются</p>
+					
+				</section>
+				
+				<section>
+					<h2>Распределение ролей при авторизации</h2>
+					<h3 style="text-align: left;">Дискреционное управление доступом</h3>
+					<p style="text-align: left; padding-left: 30px;padding-bottom: 30px;">Субъект, объекты, суперпользователь</p>
+					<h3 style="text-align: left;">Мандатное управление доступом</h3>
+					<p style="text-align: left; padding-left: 30px;padding-bottom: 30px;">Субъекты, уровень доступа, суперпользователь (более ограничен)</p>
+					<h3 style="text-align: left;">Управление доступом на основе ролей</h3>
+					<p style="text-align: left; padding-left: 30px;padding-bottom: 30px;">Каждый субъект имеет собственную роль (Ex.: "Starter,prefered,privileged used")</p>
+					
+				</section>
+							
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme,
+				transition: Reveal.getQueryHash().transition || 'default',
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>
