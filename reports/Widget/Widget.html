@@ -8,8 +8,7 @@
 	</head>
 	<body>
 		<h1>Заголовок приложения</h1>
-		<button onclick="ajax()">Загрузить phones.json!</button>
-		<script src="script/libs/Data request.js"></script>
-		<script src="script/Main_script.js"></script>
+		<button onclick="ajax('GET','https://er.em70.ru/api/schedule/get',parameter, function(){console.log(xhr.requestText)});">Привет!</button>
+		<script src="script/libs/Ajax.js"></script>
 	</body>
 </html>
