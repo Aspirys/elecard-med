@@ -1,30 +1,23 @@
-var parameter = {
-    lpu:'0001',
-    status :1
-}
 //Выполняет запрос серверу и возвращает текстовый ответ
 function ajax(method, uri, params, callback, errback) {
-    var item;
     var param_str = "";
-    var trg = false;
     //Проверка входных параметров (на количество и соответствие типов)
-    if (Object.prototype.toString.call(params) !== '[object Object]')
+    if (isObject(params))
     //Добавить ошибку при компиляции, когда появляется ошибка
     //Рекомендуется также использовать console.log(), console.error()
     //Или если ошибка throw new Error('text')
         throw new Error("Type is not equal Object");
     else {
-        //конкатинация параметров к запросу
-        for (item in params) {
+        //конкатенация параметров к запросу
+        uri += (!isEmpty(param_str) ? добавить строку : не добавлять )
+		
+		for (var item in params) {
             if (Object.prototype.hasOwnProperty.call(params, item)) {
-                if (trg) {
-                    param_str += "&";
-                }
-                param_str += item + '=' + params[item];
-                trg = true;
+                param_str += item + "=" + params[item];
             }
         }
-        if (param_str !== "") {
+		
+		if (!isEmpty(param_str)) {			
             uri += "?" + param_str;
         }
     }
@@ -36,11 +29,12 @@ function ajax(method, uri, params, callback, errback) {
         //xhr.setRequestHeader ('Header','content') - Добавить заголовок к запросу
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
+				answer=xhr.responseText;
                 //Надежное сравнение - [object Function], [object Object]
-                if (Object.prototype.toString.call(callback) === '[object Function]')
-                    callback(console.log(xhr.responseText));
+                if (isFunction(callback))
+                    callback();
             } else {
-                if (Object.prototype.toString.call(errback) === '[object Function]')
+                if (isFunction(errback))
                     errback();
             }
         } else return;
