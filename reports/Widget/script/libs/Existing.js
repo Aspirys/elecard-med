@@ -19,7 +19,7 @@ function isArray(item) {
 }
 
 function isEmpty(item) {
-	if (item === indefined) {
+	if (item === undefined) {
 		throw new Error(item + " is undefined");
 	}  else {
 		if (isObject(item)) {
