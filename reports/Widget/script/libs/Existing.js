@@ -14,6 +14,10 @@ function isNumber(item) {
 	return Object.prototype.toString.call(item) === '[object Number]';	
 }
 
+function isBoolean(item) {
+	return Object.prototype.toString.call(item) === '[object Boolean]';
+}
+
 function isArray(item) {
 	return Object.prototype.toString.call(item) === '[object Array]';	
 }

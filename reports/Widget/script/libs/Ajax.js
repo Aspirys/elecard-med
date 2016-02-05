@@ -36,3 +36,5 @@ function ajax(method, uri, params, callback, errback) {
         } else return;
     }
 }
+
+
