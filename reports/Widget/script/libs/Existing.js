@@ -23,28 +23,24 @@ function isArray(item) {
 }
 
 function isEmpty(item) {
-	if (item === undefined) {
-		throw new Error(item + " is undefined");
-	}  else {
-		if (isObject(item)) {
-			var empty = true, fld;
-			for (fld in item) {
-				empty = false;
-				break;
-			}
-			return empty;
+	if (isObject(item)) {
+		var empty = true, fld;
+		for (fld in item) {
+			empty = false;
+			break;
 		}
-		
-		if (isString(item)) { 
-			return item === "";
-		}
-		
-		if (isNumber(item)) {
-			return item === null;
-		}
-		
-		if (isArray(item)) {
-			return item.length == 0;
-		}
+		return empty;
+	}
+
+	if (isString(item)) {
+		return item === "";
+	}
+
+	if (isNumber(item)) {
+		return item === null;
+	}
+
+	if (isArray(item)) {
+		return item.length == 0;
 	}
 }

@@ -1,4 +1,3 @@
-//Функция сортировки массива докторов по фамилии||имени||отчеству
 function doctorsNameSort(doctors, type) {
     if (!isString(type)) {
         console.log("Parameter is not string");

@@ -3,7 +3,8 @@ var
     prms = { lpu:"0003", //временный объект с передаваемыми параметрами
 			 status:1
 	},
-	returned_obj = {}; //ответ, парсированный в большой объект
+	returned_obj = {}, //ответ, парсированный в большой объект
+	d1 = new Date();
 
 
 ajax("GET", uri, prms, getDoctorsNames);
@@ -29,3 +30,8 @@ function getDoctorsNames(returned_obj) {
 		console.log("This lpu has no doctors available!");
 	}
 }
+
+d1 = getWeekStart(new Date().getTime(), 0);
+
+console.log(d1.getDate() + " " + d1.getMonth() + " " + d1.getFullYear());
+
