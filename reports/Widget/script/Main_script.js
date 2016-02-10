@@ -20,18 +20,9 @@ function getDoctorsNames(returned_obj) {
 	for (i=0; i < returned_obj.schedule.lpu.length; i++) {
 		doctors = returned_obj.schedule.lpu[i].doctors;
 	}
-	if (!isEmpty(doctors)) {
 		result = doctors;
-		doctorsNameSort(result, "Фамилия");
+		propertySort(result, "first_name");
 		for (i=0; i < result.length; i++) {
 			console.log(result[i].first_name + " " + result[i].last_name + " " + result[i].middle_name + "/n");
 		}
-	} else {
-		console.log("This lpu has no doctors available!");
-	}
 }
-
-d1 = getWeekStart(new Date().getTime(), 0);
-
-console.log(d1.getDate() + " " + d1.getMonth() + " " + d1.getFullYear());
-

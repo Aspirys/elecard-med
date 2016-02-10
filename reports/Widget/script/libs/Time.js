@@ -1,16 +1,10 @@
-/* function (timestamp(или)Date, weekStart(0,1...6), ) //Начало недели - любой день
-недели //Понадобится для расписаний
-Возвращает дату начала недели
-# 25 августа, начало недели - вторник -> Вычисление даты вторника (24 августа если 25ое среда)
-- Смотрим Date (для начала только Date, на сервере timestamp в милисекундах ?, браузер понимает timestamp в микросекундах)
-*/
-//объявить в глобальном scope getDay
-//Интерпретатор проходится по local scope(только функцией) -> global objects
-//getWeekStart(строка/объект/т.д.,start) - пример вызова
-
-//проверки: пришел ли curTime (иначе искл. undefined или null)
-//если пришел -> приводим к integer (parseInt), либо Date
-//if weekStart undefined - 1, иначе мои проверки, иначе ненормальный вызов функции
+/**
+ * Возвращает начало недели, отсчет может начинаться с любого дня
+ *
+ * @param {(object|string)} date текушее дата и время.
+ * @param {number} weekStart начало недели.
+ * @return {object} объект Date c датой начала недели.
+ */
 
 function getWeekStart (date, weekStart) {
     var stampString,
@@ -36,7 +30,7 @@ function getWeekStart (date, weekStart) {
     if (weekStart === undefined) {
         weekStart = 1;
     } else {
-        if (Object.prototype.toString.call(weekStart) === '[object Number]') {
+        if (Object.prototype.toString.call(weekStart) !== '[object Number]') {
             throw new Error("Wrong function call: type mismatch");
         } else {
             if (!(weekStart >= 0 && weekStart <= 6)) {
@@ -50,5 +44,7 @@ function getWeekStart (date, weekStart) {
     d.setDate(d.getDate()-dif);
     return d;
 }
+
+
 
 

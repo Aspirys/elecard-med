@@ -6,13 +6,15 @@
 		<meta name="keywords" content="расписание, медецинские услуги, врачи" >
 		<link rel="stylesheet" href="css/style.css">
 		<script language="Javascript" type="text/javascript" src="script/libs/Time.js"></script>
-		<script language="Javascript" type="text/javascript" src="script/libs/Sortings.js"></script>
+		<script language="Javascript" type="text/javascript" src="script/libs/Sort.js"></script>
 		<script language="Javascript" type="text/javascript" src="script/libs/Existing.js"></script>
 		<script language="Javascript" type="text/javascript" src="script/libs/Ajax.js"></script>
 		<script language="Javascript" type="text/javascript" src="script/Main_script.js"></script>
 	</head>
 	<body>
 		<h1>Заголовок приложения</h1>
-		<button>Привет!</button>
+		<form action="https://er.em70.ru/api/schedule/get" method="get">
+			<input type="text" name="search">
+		</form>
 	</body>
 </html>
